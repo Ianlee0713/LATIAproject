@@ -4,6 +4,12 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    # 渲染名为index.html的模板文件
+    return render_template('index.html')
+
+
 def crawl_books_com_tw(keyword, max_results=10):
     url = f"https://search.books.com.tw/search/query/key/{keyword}/cat/all"
     headers = {
